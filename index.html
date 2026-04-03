@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wally's Wonderbraids — Hair by Wally Wally</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#D4A853;
+  --deep-purple:#3A1450;
+  --soft-purple:#6B3FA0;
+  --pink:#E8A0BF;
+  --dark:#1A0A2E;
+  --cream:#FFF8F0;
+  --gradient:linear-gradient(135deg,#3A1450,#6B3FA0,#9B59B6);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#333;background:var(--cream);overflow-x:hidden}
+
+/* ── HEADER / NAV ── */
+header{
+  background:var(--dark);
+  position:fixed;top:0;left:0;width:100%;z-index:100;
+  box-shadow:0 2px 20px rgba(0,0,0,.3);
+}
+nav{
+  max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;
+  padding:12px 24px;
+}
+.logo-area{display:flex;align-items:center;gap:12px}
+.logo-area svg{width:48px;height:48px}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold);font-weight:900;letter-spacing:1px}
+.logo-sub{font-size:.65rem;color:var(--pink);letter-spacing:3px;text-transform:uppercase;display:block;margin-top:-4px}
+nav ul{list-style:none;display:flex;gap:28px}
+nav ul li a{text-decoration:none;color:#fff;font-weight:500;font-size:.9rem;transition:.3s;position:relative}
+nav ul li a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:.3s}
+nav ul li a:hover{color:var(--gold)}
+nav ul li a:hover::after{width:100%}
+.mobile-menu{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.mobile-menu span{width:28px;height:3px;background:var(--gold);border-radius:2px;transition:.3s}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:var(--gradient);
+  position:relative;overflow:hidden;text-align:center;padding:120px 24px 80px;
+}
+.hero::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle at 30% 70%,rgba(212,168,83,.15) 0%,transparent 50%),
+             radial-gradient(circle at 70% 30%,rgba(232,160,191,.1) 0%,transparent 50%);
+  animation:shimmer 8s ease-in-out infinite alternate;
+}
+@keyframes shimmer{0%{transform:rotate(0deg)}100%{transform:rotate(5deg)}}
+.hero-content{position:relative;z-index:2}
+.hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5rem);
+  color:#fff;margin-bottom:8px;line-height:1.1;
+}
+.hero h1 span{color:var(--gold);display:inline-block;position:relative}
+.hero p{color:rgba(255,255,255,.85);font-size:clamp(1rem,2.5vw,1.3rem);margin-bottom:32px;font-weight:300;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-btn{
+  display:inline-block;padding:16px 48px;background:var(--gold);color:var(--dark);
+  text-decoration:none;font-weight:700;font-size:1rem;border-radius:50px;
+  transition:.3s;text-transform:uppercase;letter-spacing:2px;
+  box-shadow:0 4px 20px rgba(212,168,83,.4);
+}
+.hero-btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(212,168,83,.6)}
+
+/* ── sparkle accents ── */
+.sparkle{position:absolute;width:6px;height:6px;background:var(--gold);border-radius:50%;animation:twinkle 2s infinite}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
+
+/* ── SECTION STYLES ── */
+section{padding:80px 24px}
+.section-title{
+  font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);
+  text-align:center;margin-bottom:12px;color:var(--deep-purple);
+}
+.section-subtitle{text-align:center;color:#777;max-width:500px;margin:0 auto 48px;font-weight:300}
+
+/* ── SERVICES / PRICES ── */
+#services{background:#fff}
+.price-grid{
+  max-width:1000px;margin:auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;
+}
+.price-card{
+  background:linear-gradient(145deg,#faf5ff,#fff);
+  border:1px solid rgba(107,63,160,.1);border-radius:20px;
+  padding:32px 28px;text-align:center;
+  transition:.3s;position:relative;overflow:hidden;
+}
+.price-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--soft-purple),var(--pink));
+}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(58,20,80,.12)}
+.price-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--deep-purple);margin-bottom:8px}
+.price-card .price{font-size:2.2rem;font-weight:700;color:var(--gold);margin-bottom:8px}
+.price-card .price sup{font-size:1rem;vertical-align:top;margin-right:2px}
+.price-card .desc{color:#888;font-size:.85rem;line-height:1.5}
+.price-card.featured{border:2px solid var(--gold);background:linear-gradient(145deg,#fef9ee,#fff)}
+
+/* ── DEPOSIT BANNER ── */
+.deposit-banner{
+  max-width:800px;margin:48px auto 0;
+  background:var(--gradient);border-radius:20px;padding:32px 40px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  color:#fff;
+}
+.deposit-banner h3{font-family:'Playfair Display',serif;font-size:1.6rem}
+.deposit-banner p{font-weight:300;font-size:.9rem;opacity:.85}
+.deposit-amount{font-size:2.5rem;font-weight:900;color:var(--gold);font-family:'Playfair Display',serif}
+
+/* ── PORTFOLIO ── */
+#portfolio{background:var(--cream)}
+.gallery{
+  max-width:1000px;margin:auto;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;
+}
+.gallery-item{
+  border-radius:20px;overflow:hidden;position:relative;
+  aspect-ratio:3/4;box-shadow:0 4px 20px rgba(0,0,0,.1);
+}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.gallery-item:hover img{transform:scale(1.05)}
+.gallery-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(26,10,46,.8));
+  padding:24px;color:#fff;
+}
+.gallery-overlay h4{font-family:'Playfair Display',serif;font-size:1.2rem}
+.gallery-overlay p{font-size:.8rem;opacity:.8;margin-top:4px}
+
+/* ── ABOUT ── */
+#about{background:#fff}
+.about-content{max-width:700px;margin:auto;text-align:center}
+.about-content p{line-height:1.8;color:#555;font-size:1.05rem;margin-bottom:20px}
+
+/* ── BOOKING / CONTACT ── */
+#book{background:var(--dark);color:#fff;text-align:center}
+#book .section-title{color:var(--gold)}
+#book .section-subtitle{color:rgba(255,255,255,.6)}
+.book-info{max-width:600px;margin:auto}
+.book-info p{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.75);margin-bottom:20px}
+.book-btn{
+  display:inline-block;padding:16px 48px;border:2px solid var(--gold);color:var(--gold);
+  text-decoration:none;font-weight:700;border-radius:50px;
+  transition:.3s;text-transform:uppercase;letter-spacing:2px;font-size:.95rem;
+}
+.book-btn:hover{background:var(--gold);color:var(--dark)}
+
+/* ── FOOTER ── */
+footer{
+  background:#0D0520;padding:32px 24px;text-align:center;
+  color:rgba(255,255,255,.4);font-size:.8rem;
+}
+footer .footer-brand{color:var(--gold);font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:8px}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav ul{
+    position:fixed;top:0;right:-100%;width:70%;height:100vh;
+    background:var(--dark);flex-direction:column;justify-content:center;
+    align-items:center;gap:36px;transition:.4s;z-index:200;
+  }
+  nav ul.open{right:0}
+  .mobile-menu{display:flex;z-index:300}
+  .deposit-banner{flex-direction:column;text-align:center}
+  .price-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header>
+<nav>
+  <div class="logo-area">
+    <!-- SVG LOGO -->
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#D4A853"/>
+          <stop offset="100%" stop-color="#E8A0BF"/>
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="url(#lg)" stroke-width="3"/>
+      <text x="50" y="42" text-anchor="middle" font-family="Playfair Display,serif" font-size="36" font-weight="900" fill="#D4A853">W</text>
+      <text x="50" y="42" text-anchor="middle" font-family="Playfair Display,serif" font-size="36" font-weight="900" fill="#D4A853" opacity=".3" transform="translate(2,2)">W</text>
+      <path d="M20 68 Q35 60 50 68 Q65 76 80 68" fill="none" stroke="#E8A0BF" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M25 74 Q40 66 55 74 Q70 82 85 74" fill="none" stroke="#D4A853" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+      <circle cx="22" cy="28" r="2" fill="#D4A853" opacity=".6"/>
+      <circle cx="78" cy="24" r="1.5" fill="#E8A0BF" opacity=".7"/>
+      <circle cx="82" cy="42" r="1" fill="#D4A853" opacity=".5"/>
+    </svg>
+    <div>
+      <span class="logo-text">Wally's Wonderbraids</span>
+      <span class="logo-sub">Hair Artistry by Wally Wally</span>
+    </div>
+  </div>
+  <ul id="navMenu">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#book">Book Now</a></li>
+  </ul>
+  <button class="mobile-menu" onclick="document.getElementById('navMenu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+</header>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="sparkle" style="top:20%;left:15%;animation-delay:0s"></div>
+  <div class="sparkle" style="top:35%;left:80%;animation-delay:.5s"></div>
+  <div class="sparkle" style="top:60%;left:25%;animation-delay:1s"></div>
+  <div class="sparkle" style="top:75%;left:70%;animation-delay:1.5s"></div>
+  <div class="sparkle" style="top:15%;left:60%;animation-delay:.7s"></div>
+  <div class="sparkle" style="top:85%;left:45%;animation-delay:1.2s"></div>
+  <div class="hero-content">
+    <h1>Wally's <span>Wonderbraids</span></h1>
+    <p>Premium braiding, closures & wig installs crafted with love. Your hair deserves the royal treatment ✨</p>
+    <a href="#services" class="hero-btn">View Prices</a>
+  </div>
+</section>
+
+<!-- ════════ SERVICES ════════ -->
+<section id="services">
+  <h2 class="section-title">Services & Pricing</h2>
+  <p class="section-subtitle">Quality hair artistry at honest prices. Every style done with care and precision.</p>
+
+  <div class="price-grid">
+
+    <div class="price-card">
+      <h3>Closures Wigs</h3>
+      <div class="price"><sup>$</sup>85</div>
+      <p class="desc">Flawless closure wig install for a natural, seamless look.</p>
+    </div>
+
+    <div class="price-card featured">
+      <h3>Frontals</h3>
+      <div class="price"><sup>$</sup>100</div>
+      <p class="desc">Full frontal install for maximum versatility and a clean hairline.</p>
+    </div>
+
+    <div class="price-card">
+      <h3>Frontal w/ Wands</h3>
+      <div class="price"><sup>$</sup>140</div>
+      <p class="desc">Frontal install finished with beautiful wand curls for extra glam.</p>
+    </div>
+
+    <div class="price-card">
+      <h3>Frontal w/ Crimps</h3>
+      <div class="price"><sup>$</sup>140</div>
+      <p class="desc">Frontal install with crimped styling for bold, textured volume.</p>
+    </div>
+
+    <div class="price-card">
+      <h3>Kids Braids</h3>
+      <div class="price"><sup>$</sup>65</div>
+      <p class="desc">Adorable, neat braiding styles for the little queens. 👑</p>
+    </div>
+
+    <div class="price-card featured">
+      <h3>Knotless Braids — Small</h3>
+      <div class="price"><sup>$</sup>150</div>
+      <p class="desc">Sleek small knotless braids, lightweight and gentle on your edges.</p>
+    </div>
+
+    <div class="price-card">
+      <h3>Knotless Braids — Medium</h3>
+      <div class="price"><sup>$</sup>120</div>
+      <p class="desc">Classic medium knotless braids, the perfect everyday protective style.</p>
+    </div>
+
+    <div class="price-card">
+      <h3>Knotless Braids — Large</h3>
+      <div class="price"><sup>$</sup>90</div>
+      <p class="desc">Chunky large knotless braids for a bold, trendy statement.</p>
+    </div>
+
+  </div>
+
+  <!-- DEPOSIT BANNER -->
+  <div class="deposit-banner">
+    <div>
+      <h3>Deposit Required to Book</h3>
+      <p>A non-refundable deposit secures your appointment. Remaining balance due at your visit.</p>
+    </div>
+    <div class="deposit-amount">$30</div>
+  </div>
+</section>
+
+<!-- ════════ PORTFOLIO ════════ -->
+<section id="portfolio">
+  <h2 class="section-title">My Work</h2>
+  <p class="section-subtitle">Every braid tells a story. Here's a peek at what I do best.</p>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="portfolio1.jpg" alt="Beautiful braiding work by Wally Wally">
+      <div class="gallery-overlay">
+        <h4>Kids Braids</h4>
+        <p>Neat, creative styles for the little ones ✨</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="portfolio2.jpg" alt="Knotless braids by Wally Wally">
+      <div class="gallery-overlay">
+        <h4>Knotless Braids</h4>
+        <p>Clean parts, lightweight & flawless 💜</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="portfolio3.jpg" alt="Frontal with wand curls by Wally Wally">
+      <div class="gallery-overlay">
+        <h4>Frontal w/ Wands</h4>
+        <p>Laid edges & bouncy curls — perfection 😍</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="portfolio4.jpg" alt="Kids stitch braids with swirl pattern by Wally Wally">
+      <div class="gallery-overlay">
+        <h4>Kids Stitch Braids</h4>
+        <p>Swirl pattern with purple highlights & bun 💜✨</p>
+      </div>
+    </div>
+    <div class="gallery-item video-item">
+      <video src="portfolio5.mp4" playsinline loop muted autoplay preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>
+      <div class="gallery-overlay" style="pointer-events:none">
+        <h4>🎬 Hair in Motion</h4>
+        <p>Tap to play — see the finished look come alive ✨</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ABOUT ════════ -->
+<section id="about">
+  <h2 class="section-title">About Wally Wally</h2>
+  <p class="section-subtitle">The hands behind the braids</p>
+  <div class="about-content">
+    <p>Hey babe! I'm <strong>Wally Wally</strong>, a passionate hair stylist specializing in protective styles, wig installs, and braiding artistry. I believe every client deserves to leave my chair feeling like royalty — with edges laid, braids popping, and confidence on 💯.</p>
+    <p>Whether you're looking for a sleek frontal install, knotless braids, or cute styles for your little one, I've got you covered. Book your appointment today and let's create something beautiful! 💜</p>
+  </div>
+</section>
+
+<!-- ════════ BOOK ════════ -->
+<section id="book">
+  <h2 class="section-title">Book Your Appointment</h2>
+  <p class="section-subtitle">Ready to get your hair done? Let's make it happen!</p>
+  <div class="book-info">
+    <p>Send a DM or text to book your slot. Don't forget — a <strong style="color:var(--gold)">$30 deposit</strong> is required to secure your appointment. 💛</p>
+    <a href="#" class="book-btn">DM to Book ✨</a>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="footer-brand">Wally's Wonderbraids</div>
+  <p>&copy; 2026 Wally Wally. All rights reserved. | Hair done with love 💜</p>
+</footer>
+
+<!-- Close mobile menu on link click -->
+<script>
+document.querySelectorAll('#navMenu a').forEach(a=>{
+  a.addEventListener('click',()=>{document.getElementById('navMenu').classList.remove('open')});
+});
+// Tap video to toggle mute/play
+document.querySelectorAll('.video-item video').forEach(v=>{
+  v.addEventListener('click',()=>{
+    if(v.muted){v.muted=false;v.currentTime=0;v.play()}
+    else{v.muted=true}
+  });
+});
+</script>
+
+</body>
+</html>
